@@ -1,0 +1,97 @@
+﻿<Window x:Class="di.tema2.ejercicio10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.tema2.ejercicio10"
+        mc:Ignorable="d" WindowStyle="None"
+        AllowsTransparency="True" Background="Transparent"
+        Title="MainWindow" Height="550" Width="900">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="1" CornerRadius="50,50,50,50" BorderBrush="White" Background="White" Grid.ColumnSpan="2"/>
+        <Grid>
+            <Grid.OpacityMask>
+                <VisualBrush Visual="{Binding ElementName=Mask}" />
+            </Grid.OpacityMask>
+            <Border Name="Mask" BorderBrush="White" Background="White" CornerRadius="50 0 0 50" />
+            <!-- Image -->
+            <Image Source="Iconos/office.jpg" Stretch="UniformToFill" />
+            <TextBlock VerticalAlignment="Center" Text="Hello World!" TextWrapping="WrapWithOverflow" Width="200" Foreground="White" FontSize="64" HorizontalAlignment="Left" Margin="30,0,0,0" FontWeight="Bold"/>
+        </Grid>
+        <Grid Grid.Column="1" Margin="60">
+            <!-- Aquí pondremos la parte derecha de la pantalla -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Register" FontWeight="Bold" FontSize="16" />
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBlock Text="Dont have an account?" VerticalAlignment="Center" FontSize="10" Foreground="Gray" />
+                <Button Content="Create your account" FontSize="10" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Transparent" />
+            </StackPanel>
+            <TextBlock Grid.Row="2" Text="Its take less than a minute" VerticalAlignment="Center" FontSize="10" Foreground="Gray" />
+            <TextBox Grid.Row="3" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="300" BorderBrush="Gray" HorizontalAlignment="Left">
+                <mat:HintAssist.Hint>
+                    <TextBlock Text="Name" FontWeight="Bold" />
+                </mat:HintAssist.Hint>
+            </TextBox>
+            <TextBox Grid.Row="4" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="300" BorderBrush="Gray" HorizontalAlignment="Left">
+                <mat:HintAssist.Hint>
+                    <TextBlock Text="Email" FontWeight="Bold" />
+                </mat:HintAssist.Hint>
+            </TextBox>
+            <TextBox Grid.Row="5" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="300" BorderBrush="Gray" HorizontalAlignment="Left">
+                <mat:HintAssist.Hint>
+                    <TextBlock Text="Phone Number" FontWeight="Bold" />
+                </mat:HintAssist.Hint>
+            </TextBox>
+            <PasswordBox Grid.Row="6" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="300" BorderBrush="Gray" HorizontalAlignment="Left">
+                <mat:HintAssist.Hint>
+                    <TextBlock Text="Password" FontWeight="Bold" />
+                </mat:HintAssist.Hint>
+            </PasswordBox>
+            <CheckBox Grid.Row="7" Content="I Accept Terms and Conditions and Privacy Policy" FontSize="10" Foreground="Gray" Margin="0, 10, 0, 10">
+                <CheckBox.Resources>
+                    <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="Gray"/>
+                </CheckBox.Resources>
+            </CheckBox>
+            <Button Grid.Row="8" mat:ButtonAssist.CornerRadius="25" HorizontalAlignment="Right" Width="150" Content="REGISTER" Background="#D32F2E" Margin="0, 20, 0, 20" />
+            <TextBlock Grid.Row="9" Text="Its take less than a minute" VerticalAlignment="Center" FontSize="10" Foreground="Gray" />
+            <StackPanel Grid.Row="10" Orientation="Horizontal" Margin="0, 20, 0, 0">
+                <Button mat:ButtonAssist.CornerRadius="25" Background="#205392" BorderBrush="#205392">
+                    <StackPanel Orientation="Horizontal">
+                        <mat:PackIcon Kind="Facebook" VerticalAlignment="Center" Margin="0, 0, 5, 0" />
+                        <TextBlock Text="Facebook" FontSize="10" />
+                    </StackPanel>
+                </Button>
+                <Button mat:ButtonAssist.CornerRadius="25" Background="#1A9AEE" BorderBrush="#1A9AEE" Margin="25, 0, 25, 0" Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <mat:PackIcon Kind="Twitter" VerticalAlignment="Center" Margin="0, 0, 5, 0" />
+                        <TextBlock Text="Twitter" FontSize="10" />
+                    </StackPanel>
+                </Button>
+                <Button mat:ButtonAssist.CornerRadius="25">
+                    <StackPanel Orientation="Horizontal">
+                        <mat:PackIcon Kind="GooglePlus" VerticalAlignment="Center" Margin="0, 0, 5, 0" />
+                        <TextBlock Text="Google +" FontSize="10" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

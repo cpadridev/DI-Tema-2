@@ -1,0 +1,63 @@
+﻿<mah:MetroWindow x:Class="di.tema2.ejercicio7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.tema2.ejercicio7"
+        mc:Ignorable="d"
+        ShowMaxRestoreButton="False"
+        Title="" Height="450" Width="800">
+    <mah:MetroWindow.LeftWindowCommands>
+        <mah:WindowCommands ShowSeparators="False">
+            <Button Content="{mat:PackIcon Twitter}" ToolTip="Twitter" />
+            <Button Content="{mat:PackIcon Facebook}" ToolTip="Facebook" />
+            <Button Content="{mat:PackIcon Instagram}" ToolTip="Instagram" />
+            <Button Content="{mat:PackIcon Youtube}" ToolTip="YouTube" />
+            <Button Content="{mat:PackIcon Mail}" ToolTip="Correo" />
+        </mah:WindowCommands>
+    </mah:MetroWindow.LeftWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Button Content="Connect with us on" Foreground="#99C62F" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Transparent" HorizontalAlignment="Left" />
+        <Image Source="Iconos/escudo.png" Grid.Row="1" Height="64" Margin="0, 20, 0, 20" />
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center" >
+            <TextBlock Text="email" Foreground="#99C62F" HorizontalAlignment="Center" />
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 25, 0">
+                <mat:PackIcon Kind="UserCircleOutline" Foreground="#99C62F" Width="20" Height="20" VerticalAlignment="Center" Margin="0, 0, 10, 0" />
+                <TextBox Style="{StaticResource MahApps.Styles.TextBox}" Background="Black" Width="200" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center" Margin="0, 10, 0, 0" >
+            <TextBlock Text="password" Foreground="#99C62F" HorizontalAlignment="Center" />
+            <StackPanel Orientation="Horizontal" Margin="0, 0, 25, 0">
+                <mat:PackIcon Kind="LockReset" Foreground="#99C62F" Width="20" Height="20" VerticalAlignment="Center" Margin="0, 0, 10, 0" />
+                <PasswordBox Style="{StaticResource MahApps.Styles.PasswordBox}" Background="Black" Width="200" />
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Row="4" Content="Forget Password" Foreground="#99C62F" FontWeight="Bold" FontSize="14" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Transparent" Margin="0, 10, 0, 0" />
+        <Button Grid.Row="5" Content="Sign in" Width="150" Background="#CDDC39" />
+        <Button Grid.Row="6" Content="Create a new user" Foreground="#99C62F" FontWeight="Bold" FontSize="14" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Transparent" Margin="0, 10, 0, 50" Click="Button_Click" />
+        <StackPanel Grid.Column="1" Grid.RowSpan="7" Background="#333333" Width="400" Height="450"/>
+        <StackPanel Grid.Column="1" Grid.RowSpan="7" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="Iconos/flow.png" Height="28" VerticalAlignment="Center" />
+                <TextBlock Text="DAM SOFT" Foreground="#99C62F" FontSize="28" />
+            </StackPanel>
+            <TextBlock Text="Inventory Management" Foreground="#99C62F" FontSize="28" HorizontalAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

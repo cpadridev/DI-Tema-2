@@ -1,0 +1,92 @@
+﻿<mah:MetroWindow x:Class="di.tema2.ejercicio6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.tema2.ejercicio6"
+        mc:Ignorable="d"
+        ShowTitleBar="False"
+        ShowCloseButton="False"
+        ShowMaxRestoreButton="False"
+        ShowMinButton="False"
+        Title="MainWindow" Height="516" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image Source="Iconos/ciudad.jpg" Grid.Column="1" Grid.RowSpan="11"/>
+        <StackPanel Grid.Column="1" Grid.Row="4" Grid.RowSpan="2" Margin="0, 20, 0, 0">
+            <Image Source="Iconos/infinityblanco.png" Height="64" />
+            <TextBlock Text="INFINITY" FontSize="48" Foreground="White" HorizontalAlignment="Center" Margin="0, -20, 0, 0" />
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" >
+            <TextBlock Text="Lorem ipsum dolor sit amet consectetur adisciping elit," Foreground="White" HorizontalAlignment="Center" />
+            <TextBlock Text="penatibus massa mauris eu facilisi ligula aliquet," Foreground="White" HorizontalAlignment="Center" />
+            <TextBlock Text="molestie iaculis mus platea taciti fermentum" Foreground="White" HorizontalAlignment="Center" />
+        </StackPanel>
+        <TextBlock Text="WELCOME TO" Grid.Row="0" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Margin="0, 30, 0, 0" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center" >
+            <Image Source="Iconos/infinity.png" Height="48" />
+            <TextBlock Text="INFINITY" Foreground="#D05A42" VerticalAlignment="Center" FontSize="48" />
+        </StackPanel>
+        <TextBlock Text="Log in to get in the moment updates on the things" Grid.Row="2" FontSize="14" HorizontalAlignment="Center" Foreground="Gray" />
+        <TextBlock Grid.Row="3" Text="that interest you" FontSize="14" HorizontalAlignment="Center" Foreground="Gray" />
+        <TextBox Grid.Row="4" Height="48" HorizontalAlignment="Center" Width="300" Margin="0,10,0,0" Style="{StaticResource MaterialDesignOutlinedTextBox}" mat:TextFieldAssist.HasClearButton="True" mat:TextFieldAssist.TextFieldCornerRadius="25">
+            <mat:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <mat:PackIcon Kind="user" />
+                    <TextBlock Text="Username" />
+                </StackPanel>
+            </mat:HintAssist.Hint>
+        </TextBox>
+        <PasswordBox Grid.Row="5" Height="48" HorizontalAlignment="Center" Width="300" Margin="0,10,0,0" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" mat:TextFieldAssist.HasClearButton="True" mat:TextFieldAssist.TextFieldCornerRadius="25" >
+            <mat:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal" Margin="-2 0 0 0">
+                    <mat:PackIcon Kind="Password" />
+                    <TextBlock Text="Password" />
+                </StackPanel>
+            </mat:HintAssist.Hint>
+        </PasswordBox>
+        <Button Grid.Row="6" Margin="0, 20, 0, 15" mat:ButtonAssist.CornerRadius="25" Width="300" Content="SIGN IN" />
+        <StackPanel Grid.Row="7" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Don't have an acccount?" VerticalAlignment="Center" FontSize="10" Margin="15, 0, 0, 0" Foreground="Gray" />
+            <Button Content="Sign in now" FontSize="10" Margin="20, 0, 0, 0" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Transparent" />
+        </StackPanel>
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Separator Margin="5" VerticalAlignment="Center" Width="120"  Background="Gray"  />
+            <TextBlock Text="  OR  " VerticalAlignment="Center" Foreground="Gray"/>
+            <Separator Margin="5" VerticalAlignment="Center" Width="120"  Background="Gray"  />
+        </StackPanel>
+        <TextBlock Grid.Row="9" Text="Continue with social media" HorizontalAlignment="Center" FontSize="10" Margin="0, 10, 0, 10" Foreground="Gray" />
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="10" Margin="0, 0, 0, 20">
+            <Button Margin="0, 0, 5, 0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Background="White" BorderBrush="Gray">
+                <mat:PackIcon Kind="Facebook" />
+            </Button>
+            <Button Margin="5, 0, 5, 0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Background="White" BorderBrush="Gray">
+                <mat:PackIcon Kind="Twitter" />
+            </Button>
+            <Button Margin="5, 0, 5, 0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Background="White" BorderBrush="Gray">
+                <mat:PackIcon Kind="GooglePlus" />
+            </Button>
+            <Button Margin="5, 0, 0, 0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Background="White" BorderBrush="Gray">
+                <mat:PackIcon Kind="Instagram" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

@@ -1,0 +1,78 @@
+﻿<Window x:Class="di.tema2.ejercicio1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:di.tema2.ejercicio1"
+        mc:Ignorable="d"
+        Title="" Height="550" Width="800">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <!-- Parte superior-->
+            <Grid DockPanel.Dock="Top" Background="#0665dc">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Current" Margin="20,20,20,20" Height="40" Width="100" />
+                <Button Content="Projected" Margin="20,20,0,20" Height="40" Width="100" Grid.Column="1" HorizontalAlignment="Left"/>
+                <Button Margin="604,20,0,20" HorizontalAlignment="Left" Grid.Column="1">
+                    <Image Source="Iconos/Interrogante.png" Height="32"/>
+                </Button>
+            </Grid>
+            <!-- Parte izquierda -->
+            <StackPanel DockPanel.Dock="Left">
+                <TextBox Text="Data" FontWeight="Bold" Margin="10" />
+                <TextBox Text="Sales" Margin="20, 10" />
+                <TextBox Text="Marketing" Margin="20, 10" />
+                <TextBox Text="Distribution" Margin="20, 10" />
+                <TextBox Text="Costs" Margin="20, 10" />
+            </StackPanel>
+            <!-- Parte derecha -->
+            <WrapPanel DockPanel.Dock="Right" Width="100">
+                <Button Margin="10" Background="Transparent">
+                    <Image Source="Iconos/BarChart.png" Height="24" />
+                </Button>
+                <Button Margin="10" Background="Transparent">
+                    <Image Source="Iconos/LineChart.png" Height="24" />
+                </Button>
+                <Button Margin="10" Background="Transparent">
+                    <Image Source="Iconos/ComboChart.png" Height="24" />
+                </Button>
+                <Button Margin="10" Background="Transparent">
+                    <Image Source="Iconos/PieChart.png" Height="24" />
+                </Button>
+                <Button Margin="10" Background="Transparent">
+                    <Image Source="Iconos/Location.png" Height="24" />
+                </Button>
+                <Button Margin="10" Background="Transparent">
+                    <Image Source="Iconos/Relative.png" Height="24" />
+                </Button>
+            </WrapPanel>
+            <!-- Parte central -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image Source="Iconos/Casa.png" Height="64" Margin="10" Grid.RowSpan="2" />
+                <TextBlock Text="Sales: Current Year" FontWeight="Bold" Margin="10, 15, 10, 0" FontSize="16" Grid.Column="1" />
+                <TextBlock Text="Goods and Services" Margin="10, 0, 10, 10" Grid.Column="1" Grid.Row="1" />
+                <TextBlock Text="Services 20%" Margin="10" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" />
+                <Image Source="Iconos/Principal.png" Grid.Column="1" Grid.Row="3"  />
+                <TextBlock Text="Goods 80%" Margin="10" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" />
+                <Button Content="Save" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Right" Width="100" Margin="10" />
+                <Button Content="Cancel" Grid.Column="2" Grid.Row="5" HorizontalAlignment="Right" Width="100" Margin="10" />
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

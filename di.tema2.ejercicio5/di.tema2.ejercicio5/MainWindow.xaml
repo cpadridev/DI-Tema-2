@@ -1,0 +1,65 @@
+﻿<mah:MetroWindow x:Class="di.tema2.ejercicio5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.tema2.ejercicio5"
+        mc:Ignorable="d"
+        ShowTitleBar="False"
+        ShowCloseButton="False"
+        ShowMaxRestoreButton="False"
+        ShowMinButton="False"
+        Title="MainWindow" Height="500" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Left" Grid.RowSpan="8" Background="#272264" Width="225" Height="500">
+            <Image Source="Iconos/mano.png" Height="150" Margin="0, 40, 0, 0" />
+            <StackPanel Margin="0, 20, 0, 0" HorizontalAlignment="Center">
+                <TextBlock Text="Lorem ipsum dolor sit amet" HorizontalAlignment="Center" Foreground="White" FontSize="13" FontWeight="Bold" />
+                <TextBlock Text="Aenean commado ligula eget dolor" HorizontalAlignment="Center" Foreground="#CCD3ED" FontSize="9" Margin="0, 10, 0, 0" />
+                <TextBlock Text="consectetuer adipiscing elit" HorizontalAlignment="Center" Foreground="#CCD3ED" FontSize="9" Margin="0, 10, 0, 0" />
+                <TextBlock Text="Aenean massa" HorizontalAlignment="Center" Foreground="#CCD3ED" FontSize="9" Margin="0, 10, 0, 0" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" >
+            <TextBlock Text="REGISTER" HorizontalAlignment="Center" Margin="0, 20, 0, 0" FontSize="13" FontWeight="Bold" Foreground="#4F6DDB" />
+            <Separator Width="85" Margin="0, -2, 0, 0" />
+        </StackPanel>
+        <TextBox mat:HintAssist.Hint="Full Name" Foreground="#BCB9EF" Grid.Column="1" Grid.Row="1" BorderBrush="Black" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="40" Width="250" HorizontalAlignment="Left" x:Name="txbName" TextChanged="TextBox_TextChanged" />
+        <TextBox mat:HintAssist.Hint="Email Address" Foreground="#BCB9EF" Grid.Column="1" Grid.Row="2" BorderBrush="Black" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="40" Width="250" HorizontalAlignment="Left" x:Name="txbEmail" />
+        <TextBox mat:HintAssist.Hint="Mobile Number" Foreground="#BCB9EF" Grid.Column="1" Grid.Row="3" BorderBrush="Black" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Height="40" Width="250" HorizontalAlignment="Left" x:Name="txbNumber" Text="{Binding ElementName=txbName, Path=Text}" />
+       <PasswordBox mat:HintAssist.Hint="Set Password" Foreground="#BCB9EF" Grid.Column="1" Grid.Row="4" BorderBrush="Black" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Height="40" Width="250" HorizontalAlignment="Left" />
+        <CheckBox Content="I herby certify that i am at least 18 years ago" FontSize="9" Foreground="Gray" Grid.Column="1" Grid.Row="5">
+            <CheckBox.Resources>
+                <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="Gray"/>
+            </CheckBox.Resources>
+        </CheckBox>
+        <CheckBox Content="I have read and accept the Terms of Use and Privacy Policy" FontSize="9" Foreground="Gray" Grid.Column="1" Grid.Row="6">
+            <CheckBox.Resources>
+                <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="Gray"/>
+            </CheckBox.Resources>
+        </CheckBox>
+
+        <Button Grid.Column="1" Grid.Row="7" Margin="0, 0, 0, 50" mat:ButtonAssist.CornerRadius="25" HorizontalAlignment="Center" Height="32" Width="200" Background="#1976D3" MouseEnter="btnRegisterNow_MouseEnter" x:Name="btnRegisterNow" MouseLeave="btnRegisterNow_MouseLeave" Cursor="Hand">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="REGISTER NOW   " />
+                <mat:PackIcon Kind="ArrowRight" VerticalAlignment="Center" />
+            </StackPanel>
+        </Button>
+    </Grid>
+</mah:MetroWindow>

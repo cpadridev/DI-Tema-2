@@ -1,0 +1,63 @@
+﻿<mah:MetroWindow x:Class="di.tema2.ejercicio11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.tema2.ejercicio11"
+        mc:Ignorable="d"
+        Title="LOGIN BLUE" Height="450" Width="800">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0, 10, 0, 0">
+            <StackPanel Orientation="Horizontal">
+                <mat:PackIcon Kind="KeyboardArrowLeft" Margin="10,4,0,0" >
+                    <mat:PackIcon.LayoutTransform>
+                        <ScaleTransform CenterX="0.5" CenterY="0.5" ScaleX="2" ScaleY="2"/>
+                    </mat:PackIcon.LayoutTransform>
+                </mat:PackIcon>
+                <TextBlock Text="Back to Preview" VerticalAlignment="Center" FontSize="13" />
+            </StackPanel>
+            <Image Source="Iconos/bluelock.png" Height="32" Margin="170, 0, 170, 0" />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Not member?" VerticalAlignment="Center" FontSize="12" Margin="0, 0, 25, 0" />
+                <Button FontSize="10" Padding="5, 0" Background="Black" BorderBrush="Transparent">
+                    <TextBlock Text="SIGN UP" FontSize="12" FontWeight="Bold" />
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <TextBox Grid.Row="1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="250" BorderBrush="Black" Margin="0, 100, 0, 0">
+            <mat:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal">
+                    <mat:PackIcon Kind="User" Foreground="White" Margin="0, 0, 5, 0" />
+                    <TextBlock Text="Username" FontWeight="Bold" />
+                </StackPanel>
+            </mat:HintAssist.Hint>
+        </TextBox>
+        <PasswordBox Grid.Row="2" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="250" BorderBrush="Black" Margin="0, 10, 0, 0">
+            <mat:HintAssist.Hint>
+                <StackPanel Orientation="Horizontal">
+                    <mat:PackIcon Kind="AlphaICircleOutline" Foreground="White" Margin="0, 0, 5, 0" />
+                    <TextBlock Text="Password" FontWeight="Bold" />
+                </StackPanel>
+            </mat:HintAssist.Hint>
+        </PasswordBox>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="180, 25, 0, 50">
+            <CheckBox Content="Remember me" Foreground="Gray" Margin="95, 0, 80, 0">
+                <CheckBox.Resources>
+                    <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="Black"/>
+                </CheckBox.Resources>
+            </CheckBox>
+            <Button Content="Login" BorderBrush="Transparent" />
+        </StackPanel>
+        <Button Grid.Row="4" Content="Forgot password?" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Transparent" />
+    </Grid>
+</mah:MetroWindow>
