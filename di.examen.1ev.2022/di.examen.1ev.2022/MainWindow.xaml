@@ -1,0 +1,111 @@
+﻿<mah:MetroWindow x:Class="di.examen.nov._2021.bis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.examen.nov._2021.bis"
+        mc:Ignorable="d" WindowState="Maximized" 
+        Title="EXAMEN DI" Height="650" Width="1000">
+    <DockPanel>
+        <Grid DockPanel.Dock="Left" Background="#E5303030" Width="300">
+            <StackPanel x:Name="Menu">
+                <Grid>
+                    <mat:PackIcon Kind="ViewDashboard" Width="15" Height="15" Margin="10 16" Foreground="White"/>
+                    <ListBoxItem x:Name="ListViewItemMenu" Content="AIR APP" Padding="37 14" FontSize="15" Foreground="White" Style="{StaticResource MaterialDesignListBoxItem}"/>
+                </Grid>
+                <Grid Background="#00A0E3">
+                    <mat:PackIcon Kind="Airplane" Width="15" Height="15" Margin="10 16" Foreground="White" />
+                    <Expander IsExpanded="False" Margin="45,0,0,0" Style="{StaticResource MaterialDesignExpander}" Header="AVIONES" Background="{x:Null}" Foreground="White" >
+                        <ListView x:Name="ListViewMenu" ItemsSource="{Binding Path=SubItems}" Foreground="White" Style="{StaticResource MaterialDesignListView}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="Add" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Añadir Avión" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="Delete" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Eliminar Avión" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem Selected="listViewItemTipoAvion_Selected">
+                                <StackPanel Orientation="Horizontal" >
+                                    <mat:PackIcon Kind="AirplaneEdit" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Tipo Avión" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView>
+                    </Expander>
+                </Grid>
+
+                <Grid Background="#DAB417">
+                    <mat:PackIcon Kind="PersonBadge" Width="15" Height="15" Margin="10 16" Foreground="White" />
+                    <Expander IsExpanded="False" Margin="45,0,0,0" Header="PERSONAL" Style="{StaticResource MaterialDesignExpander}" Background="{x:Null}" Foreground="White">
+                        <ListView ItemsSource="{Binding Path=SubItems}" Foreground="White" Style="{StaticResource MaterialDesignListView}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="PersonAdd" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Nuevo Piloto" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="Edit" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Edita Piloto" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView>
+                    </Expander>
+                </Grid>
+
+                <Grid Background="#E31E24">
+                    <mat:PackIcon Kind="Tools" Width="15" Height="15" Margin="10 16" Foreground="White" />
+                    <Expander IsExpanded="False" Header="REVISIONES" Style="{StaticResource MaterialDesignExpander}" Background="{x:Null}" Foreground="White" Margin="45,0,0,0">
+                        <ListView ItemsSource="{Binding Path=SubItems}" Foreground="White" Style="{StaticResource MaterialDesignListView}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="Counter" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Número Previsiones" VerticalAlignment="Center" />
+                                    <Button Content="100" x:Name="btnNumRevisiones" Margin="20, 0, 0, 0" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="White" Foreground="White" mat:ButtonAssist.CornerRadius="15" Width="70" Height="24" VerticalAlignment="Center" Cursor="Hand" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="AirplaneCheck" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Mecánicos" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView>
+                    </Expander>
+                </Grid>
+
+                <Grid Background="#61A375">
+                    <mat:PackIcon Kind="FlightLand" Width="15" Height="15" Margin="10 16" Foreground="White" />
+                    <Expander IsExpanded="False" Margin="45,0,0,0" Header="VUELOS" Style="{StaticResource MaterialDesignExpander}" Background="{x:Null}" Foreground="White">
+                        <ListView ItemsSource="{Binding Path=SubItems}" Foreground="White" Style="{StaticResource MaterialDesignListView}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListViewItem x:Name="listViewItemNuevoVuelo" Selected="listViewItemNuevoVuelo_Selected">
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="FlightTakeoff" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Nuevo Vuelo" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </ListViewItem>
+                            <ListViewItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <mat:PackIcon Kind="PeopleGroup" Margin="0, 0, 10, 0" VerticalAlignment="Center" />
+                                    <TextBlock Text="Tripulación" VerticalAlignment="Center" />
+                                    <Button x:Name="btnTripulacion" Content="10" Margin="20, 0, 0, 0" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="White" Foreground="White" mat:ButtonAssist.CornerRadius="15" Width="70" Height="24" VerticalAlignment="Center" Cursor="Hand" />
+                                </StackPanel>
+                            </ListViewItem>
+                        </ListView>
+                    </Expander>
+                </Grid>
+            </StackPanel>
+        </Grid >
+        <Grid x:Name="gridCentral">
+        </Grid>
+    </DockPanel>
+</mah:MetroWindow>

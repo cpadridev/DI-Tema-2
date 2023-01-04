@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="aerolineasModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="avion">
+    <Key>
+      <PropertyRef Name="Matricula" />
+    </Key>
+    <Property Name="Matricula" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" />
+    <Property Name="Any_Fabricacion" Type="uint" />
+    <Property Name="Clase" Type="enum" />
+  </EntityType>
+  <EntityType Name="ciudades">
+    <Key>
+      <PropertyRef Name="Codigo_Ciudad" />
+    </Key>
+    <Property Name="Codigo_Ciudad" Type="varchar" MaxLength="18" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="45" />
+    <Property Name="Habitantes" Type="int" />
+    <Property Name="Servicio_Mecanico" Type="bool" Nullable="false" />
+  </EntityType>
+  <EntityType Name="personal">
+    <Key>
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Identificacion" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CogNombres" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Fecha_Nacimiento" Type="date" />
+    <Property Name="Cargo" Type="enum" Nullable="false" />
+  </EntityType>
+  <EntityType Name="revisiones">
+    <Key>
+      <PropertyRef Name="Numero_Revision" />
+    </Key>
+    <Property Name="Numero_Revision" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_Revision" Type="date" />
+    <Property Name="Coste" Type="float" />
+    <Property Name="Matricula" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Codigo_Ciudad" Type="varchar" MaxLength="18" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tipo">
+    <Key>
+      <PropertyRef Name="Clase" />
+    </Key>
+    <Property Name="Clase" Type="enum" Nullable="false" />
+    <Property Name="Nombre_Fabricante" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Peso" Type="int" Nullable="false" />
+    <Property Name="Alcance" Type="uint" Nullable="false" />
+    <Property Name="Numero_asientos" Type="uint" Nullable="false" />
+    <Property Name="Longitud" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vuelopara">
+    <Key>
+      <PropertyRef Name="Codigo_Vuelo" />
+      <PropertyRef Name="Identificacion" />
+    </Key>
+    <Property Name="Codigo_Vuelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Identificacion" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vuelos">
+    <Key>
+      <PropertyRef Name="Codigo_Vuelo" />
+    </Key>
+    <Property Name="Codigo_Vuelo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Dia" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="duracion" Type="time" Precision="0" Nullable="false" />
+    <Property Name="Reservas" Type="int" />
+    <Property Name="Matricula_Avion" Type="varchar" MaxLength="15" />
+    <Property Name="Codigo_Ciudad_Eixida" Type="varchar" MaxLength="18" />
+    <Property Name="Codigo_Ciudad_Arribada" Type="varchar" MaxLength="18" />
+  </EntityType>
+  <Association Name="FK_avion_1">
+    <End Role="tipo" Type="Self.tipo" Multiplicity="0..1" />
+    <End Role="avion" Type="Self.avion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo">
+        <PropertyRef Name="Clase" />
+      </Principal>
+      <Dependent Role="avion">
+        <PropertyRef Name="Clase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_revisiones_1">
+    <End Role="avion" Type="Self.avion" Multiplicity="1" />
+    <End Role="revisiones" Type="Self.revisiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avion">
+        <PropertyRef Name="Matricula" />
+      </Principal>
+      <Dependent Role="revisiones">
+        <PropertyRef Name="Matricula" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_revisiones_2">
+    <End Role="ciudades" Type="Self.ciudades" Multiplicity="1" />
+    <End Role="revisiones" Type="Self.revisiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ciudades">
+        <PropertyRef Name="Codigo_Ciudad" />
+      </Principal>
+      <Dependent Role="revisiones">
+        <PropertyRef Name="Codigo_Ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vuelopara_1">
+    <End Role="vuelos" Type="Self.vuelos" Multiplicity="1" />
+    <End Role="vuelopara" Type="Self.vuelopara" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vuelos">
+        <PropertyRef Name="Codigo_Vuelo" />
+      </Principal>
+      <Dependent Role="vuelopara">
+        <PropertyRef Name="Codigo_Vuelo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vuelopara_2">
+    <End Role="personal" Type="Self.personal" Multiplicity="1" />
+    <End Role="vuelopara" Type="Self.vuelopara" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="personal">
+        <PropertyRef Name="Identificacion" />
+      </Principal>
+      <Dependent Role="vuelopara">
+        <PropertyRef Name="Identificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vuelos_1">
+    <End Role="avion" Type="Self.avion" Multiplicity="0..1" />
+    <End Role="vuelos" Type="Self.vuelos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="avion">
+        <PropertyRef Name="Matricula" />
+      </Principal>
+      <Dependent Role="vuelos">
+        <PropertyRef Name="Matricula_Avion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vuelos_2">
+    <End Role="ciudades" Type="Self.ciudades" Multiplicity="0..1" />
+    <End Role="vuelos" Type="Self.vuelos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ciudades">
+        <PropertyRef Name="Codigo_Ciudad" />
+      </Principal>
+      <Dependent Role="vuelos">
+        <PropertyRef Name="Codigo_Ciudad_Eixida" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_vuelos_3">
+    <End Role="ciudades" Type="Self.ciudades" Multiplicity="0..1" />
+    <End Role="vuelos" Type="Self.vuelos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ciudades">
+        <PropertyRef Name="Codigo_Ciudad" />
+      </Principal>
+      <Dependent Role="vuelos">
+        <PropertyRef Name="Codigo_Ciudad_Arribada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="aerolineasModelStoreContainer">
+    <EntitySet Name="avion" EntityType="Self.avion" Schema="aerolineas" store:Type="Tables" />
+    <EntitySet Name="ciudades" EntityType="Self.ciudades" Schema="aerolineas" store:Type="Tables" />
+    <EntitySet Name="personal" EntityType="Self.personal" Schema="aerolineas" store:Type="Tables" />
+    <EntitySet Name="revisiones" EntityType="Self.revisiones" Schema="aerolineas" store:Type="Tables" />
+    <EntitySet Name="tipo" EntityType="Self.tipo" Schema="aerolineas" store:Type="Tables" />
+    <EntitySet Name="vuelopara" EntityType="Self.vuelopara" Schema="aerolineas" store:Type="Tables" />
+    <EntitySet Name="vuelos" EntityType="Self.vuelos" Schema="aerolineas" store:Type="Tables" />
+    <AssociationSet Name="FK_avion_1" Association="Self.FK_avion_1">
+      <End Role="tipo" EntitySet="tipo" />
+      <End Role="avion" EntitySet="avion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_revisiones_1" Association="Self.FK_revisiones_1">
+      <End Role="avion" EntitySet="avion" />
+      <End Role="revisiones" EntitySet="revisiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_revisiones_2" Association="Self.FK_revisiones_2">
+      <End Role="ciudades" EntitySet="ciudades" />
+      <End Role="revisiones" EntitySet="revisiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vuelopara_1" Association="Self.FK_vuelopara_1">
+      <End Role="vuelos" EntitySet="vuelos" />
+      <End Role="vuelopara" EntitySet="vuelopara" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vuelopara_2" Association="Self.FK_vuelopara_2">
+      <End Role="personal" EntitySet="personal" />
+      <End Role="vuelopara" EntitySet="vuelopara" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vuelos_1" Association="Self.FK_vuelos_1">
+      <End Role="avion" EntitySet="avion" />
+      <End Role="vuelos" EntitySet="vuelos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vuelos_2" Association="Self.FK_vuelos_2">
+      <End Role="ciudades" EntitySet="ciudades" />
+      <End Role="vuelos" EntitySet="vuelos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_vuelos_3" Association="Self.FK_vuelos_3">
+      <End Role="ciudades" EntitySet="ciudades" />
+      <End Role="vuelos" EntitySet="vuelos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

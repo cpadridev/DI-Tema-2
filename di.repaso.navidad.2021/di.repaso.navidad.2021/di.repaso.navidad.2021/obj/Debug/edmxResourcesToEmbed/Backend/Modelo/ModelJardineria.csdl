@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jardineriaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="clientes">
+    <Key>
+      <PropertyRef Name="CodigoCliente" />
+    </Key>
+    <Property Name="CodigoCliente" Type="Int32" Nullable="false" />
+    <Property Name="NombreCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NombreContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ApellidoContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Telefono" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LineaDireccion1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LineaDireccion2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoEmpleadoRepVentas" Type="Int32" />
+    <Property Name="LimiteCredito" Type="Decimal" />
+    <NavigationProperty Name="empleados" Relationship="Self.Clientes_EmpleadosFK" FromRole="clientes" ToRole="empleados" />
+    <NavigationProperty Name="pagos" Relationship="Self.Pagos_clienteFK" FromRole="clientes" ToRole="pagos" />
+    <NavigationProperty Name="pedidos" Relationship="Self.Pedidos_Cliente" FromRole="clientes" ToRole="pedidos" />
+  </EntityType>
+  <EntityType Name="detallepedidos">
+    <Key>
+      <PropertyRef Name="CodigoPedido" />
+      <PropertyRef Name="CodigoProducto" />
+    </Key>
+    <Property Name="CodigoPedido" Type="Int32" Nullable="false" />
+    <Property Name="CodigoProducto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="PrecioUnidad" Type="Decimal" Nullable="false" />
+    <Property Name="NumeroLinea" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="pedidos" Relationship="Self.DetallePedidos_PedidoFK" FromRole="detallepedidos" ToRole="pedidos" />
+    <NavigationProperty Name="productos" Relationship="Self.DetallePedidos_ProductoFK" FromRole="detallepedidos" ToRole="productos" />
+  </EntityType>
+  <EntityType Name="empleados">
+    <Key>
+      <PropertyRef Name="CodigoEmpleado" />
+    </Key>
+    <Property Name="CodigoEmpleado" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodigoOficina" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodigoJefe" Type="Int32" />
+    <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="clientes" Relationship="Self.Clientes_EmpleadosFK" FromRole="empleados" ToRole="clientes" />
+    <NavigationProperty Name="empleados1" Relationship="Self.Empleados_EmpleadosFK" FromRole="empleados" ToRole="empleados1" />
+    <NavigationProperty Name="empleados2" Relationship="Self.Empleados_EmpleadosFK" FromRole="empleados1" ToRole="empleados" />
+    <NavigationProperty Name="oficinas" Relationship="Self.Empleados_OficinasFK" FromRole="empleados" ToRole="oficinas" />
+  </EntityType>
+  <EntityType Name="gamasproductos">
+    <Key>
+      <PropertyRef Name="Gama" />
+    </Key>
+    <Property Name="Gama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DescripcionTexto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="DescripcionHTML" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="productos" Relationship="Self.Productos_gamaFK" FromRole="gamasproductos" ToRole="productos" />
+  </EntityType>
+  <EntityType Name="oficinas">
+    <Key>
+      <PropertyRef Name="CodigoOficina" />
+    </Key>
+    <Property Name="CodigoOficina" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LineaDireccion1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LineaDireccion2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="empleados" Relationship="Self.Empleados_OficinasFK" FromRole="oficinas" ToRole="empleados" />
+  </EntityType>
+  <EntityType Name="pagos">
+    <Key>
+      <PropertyRef Name="CodigoCliente" />
+      <PropertyRef Name="IDTransaccion" />
+    </Key>
+    <Property Name="CodigoCliente" Type="Int32" Nullable="false" />
+    <Property Name="FormaPago" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaPago" Type="DateTime" Nullable="false" />
+    <Property Name="Cantidad" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="clientes" Relationship="Self.Pagos_clienteFK" FromRole="pagos" ToRole="clientes" />
+  </EntityType>
+  <EntityType Name="pedidos">
+    <Key>
+      <PropertyRef Name="CodigoPedido" />
+    </Key>
+    <Property Name="CodigoPedido" Type="Int32" Nullable="false" />
+    <Property Name="FechaPedido" Type="DateTime" Nullable="false" />
+    <Property Name="FechaEsperada" Type="DateTime" Nullable="false" />
+    <Property Name="FechaEntrega" Type="DateTime" />
+    <Property Name="Estado" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Comentarios" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CodigoCliente" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="clientes" Relationship="Self.Pedidos_Cliente" FromRole="pedidos" ToRole="clientes" />
+    <NavigationProperty Name="detallepedidos" Relationship="Self.DetallePedidos_PedidoFK" FromRole="pedidos" ToRole="detallepedidos" />
+  </EntityType>
+  <EntityType Name="productos">
+    <Key>
+      <PropertyRef Name="CodigoProducto" />
+    </Key>
+    <Property Name="CodigoProducto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dimensiones" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="CantidadEnStock" Type="Int16" Nullable="false" />
+    <Property Name="PrecioVenta" Type="Decimal" Nullable="false" />
+    <Property Name="PrecioProveedor" Type="Decimal" />
+    <NavigationProperty Name="detallepedidos" Relationship="Self.DetallePedidos_ProductoFK" FromRole="productos" ToRole="detallepedidos" />
+    <NavigationProperty Name="gamasproductos" Relationship="Self.Productos_gamaFK" FromRole="productos" ToRole="gamasproductos" />
+  </EntityType>
+  <Association Name="Clientes_EmpleadosFK">
+    <End Role="empleados" Type="Self.empleados" Multiplicity="0..1" />
+    <End Role="clientes" Type="Self.clientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="CodigoEmpleado" />
+      </Principal>
+      <Dependent Role="clientes">
+        <PropertyRef Name="CodigoEmpleadoRepVentas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Pagos_clienteFK">
+    <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+    <End Role="pagos" Type="Self.pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientes">
+        <PropertyRef Name="CodigoCliente" />
+      </Principal>
+      <Dependent Role="pagos">
+        <PropertyRef Name="CodigoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Pedidos_Cliente">
+    <End Role="clientes" Type="Self.clientes" Multiplicity="1" />
+    <End Role="pedidos" Type="Self.pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="clientes">
+        <PropertyRef Name="CodigoCliente" />
+      </Principal>
+      <Dependent Role="pedidos">
+        <PropertyRef Name="CodigoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DetallePedidos_PedidoFK">
+    <End Role="pedidos" Type="Self.pedidos" Multiplicity="1" />
+    <End Role="detallepedidos" Type="Self.detallepedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pedidos">
+        <PropertyRef Name="CodigoPedido" />
+      </Principal>
+      <Dependent Role="detallepedidos">
+        <PropertyRef Name="CodigoPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DetallePedidos_ProductoFK">
+    <End Role="productos" Type="Self.productos" Multiplicity="1" />
+    <End Role="detallepedidos" Type="Self.detallepedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productos">
+        <PropertyRef Name="CodigoProducto" />
+      </Principal>
+      <Dependent Role="detallepedidos">
+        <PropertyRef Name="CodigoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Empleados_EmpleadosFK">
+    <End Role="empleados" Type="Self.empleados" Multiplicity="0..1" />
+    <End Role="empleados1" Type="Self.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="empleados">
+        <PropertyRef Name="CodigoEmpleado" />
+      </Principal>
+      <Dependent Role="empleados1">
+        <PropertyRef Name="CodigoJefe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Empleados_OficinasFK">
+    <End Role="oficinas" Type="Self.oficinas" Multiplicity="1" />
+    <End Role="empleados" Type="Self.empleados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="oficinas">
+        <PropertyRef Name="CodigoOficina" />
+      </Principal>
+      <Dependent Role="empleados">
+        <PropertyRef Name="CodigoOficina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Productos_gamaFK">
+    <End Role="gamasproductos" Type="Self.gamasproductos" Multiplicity="1" />
+    <End Role="productos" Type="Self.productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gamasproductos">
+        <PropertyRef Name="Gama" />
+      </Principal>
+      <Dependent Role="productos">
+        <PropertyRef Name="Gama" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="jardineriaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="clientes" EntityType="Self.clientes" />
+    <EntitySet Name="detallepedidos" EntityType="Self.detallepedidos" />
+    <EntitySet Name="empleados" EntityType="Self.empleados" />
+    <EntitySet Name="gamasproductos" EntityType="Self.gamasproductos" />
+    <EntitySet Name="oficinas" EntityType="Self.oficinas" />
+    <EntitySet Name="pagos" EntityType="Self.pagos" />
+    <EntitySet Name="pedidos" EntityType="Self.pedidos" />
+    <EntitySet Name="productos" EntityType="Self.productos" />
+    <AssociationSet Name="Clientes_EmpleadosFK" Association="Self.Clientes_EmpleadosFK">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="clientes" EntitySet="clientes" />
+    </AssociationSet>
+    <AssociationSet Name="Pagos_clienteFK" Association="Self.Pagos_clienteFK">
+      <End Role="clientes" EntitySet="clientes" />
+      <End Role="pagos" EntitySet="pagos" />
+    </AssociationSet>
+    <AssociationSet Name="Pedidos_Cliente" Association="Self.Pedidos_Cliente">
+      <End Role="clientes" EntitySet="clientes" />
+      <End Role="pedidos" EntitySet="pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="DetallePedidos_PedidoFK" Association="Self.DetallePedidos_PedidoFK">
+      <End Role="pedidos" EntitySet="pedidos" />
+      <End Role="detallepedidos" EntitySet="detallepedidos" />
+    </AssociationSet>
+    <AssociationSet Name="DetallePedidos_ProductoFK" Association="Self.DetallePedidos_ProductoFK">
+      <End Role="productos" EntitySet="productos" />
+      <End Role="detallepedidos" EntitySet="detallepedidos" />
+    </AssociationSet>
+    <AssociationSet Name="Empleados_EmpleadosFK" Association="Self.Empleados_EmpleadosFK">
+      <End Role="empleados" EntitySet="empleados" />
+      <End Role="empleados1" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="Empleados_OficinasFK" Association="Self.Empleados_OficinasFK">
+      <End Role="oficinas" EntitySet="oficinas" />
+      <End Role="empleados" EntitySet="empleados" />
+    </AssociationSet>
+    <AssociationSet Name="Productos_gamaFK" Association="Self.Productos_gamaFK">
+      <End Role="gamasproductos" EntitySet="gamasproductos" />
+      <End Role="productos" EntitySet="productos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

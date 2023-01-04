@@ -1,0 +1,210 @@
+﻿<mah:MetroWindow x:Class="di.proyecto.clase._2022.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="INVENTARIO MATISSE" Height="450" Width="800">
+    
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button>
+                <mat:PackIcon Kind="AccountMinus" />
+            </Button>
+            <Button>
+                <mat:PackIcon Kind="LoginVariant" />
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Menu Grid.Row="0">
+                <MenuItem Header="Prestamos">
+                    <MenuItem Header="Salidas">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="LocationExit" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Entradas">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="LocationEnter" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <Separator />
+
+                    <MenuItem Header="Listado Pendientes">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="ClipboardList" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Articulos">
+                    <MenuItem Header="Articulo Nuevo" Click="menuItemArticuloNuevo_Click">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="Package" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Articulo Nuevo MVVM" Click="menuItemArticuloNuevoMVVM_Click">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="Package" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Editar">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="PackageVariant" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Lista">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="ViewList" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <Separator />
+
+                    <MenuItem Header="Modelo Articulo Nuevo" Click="menuItemModeloArticuloNuevo_Click">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="PackageDown" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Modelo Articulo Nuevo MVVM" Click="menuItemModeloArticuloNuevoMVVM_Click">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="PackageDown" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Modelo Articulo Editar">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="PackageUp" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Lista Modelo Articulo">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="ViewAgenda" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Administración">
+                    <MenuItem Header="Gestión Usuarios">
+                        <MenuItem Header="Nuevo" Click="menuItemUsuarioNuevo_Click">
+                            <MenuItem.Icon>
+                                <mat:PackIcon Kind="AccountAdd" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Nuevo MVVM" Click="menuItemUsuarioNuevoMVVM_Click">
+                            <MenuItem.Icon>
+                                <mat:PackIcon Kind="AccountAdd" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Editar">
+                            <MenuItem.Icon>
+                                <mat:PackIcon Kind="AccountEdit" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Lista">
+                            <MenuItem.Icon>
+                                <mat:PackIcon Kind="ListBox" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="Contraseñas">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="LockReset" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Mantenimiento">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="HammerScrewdriver" />
+                        </MenuItem.Icon>
+                        <MenuItem Header="Eliminar Articulo">
+                            <MenuItem.Icon>
+                                <mat:PackIcon Kind="DeleteCircle" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Eliminar Modelo Articulo">
+                            <MenuItem.Icon>
+                                <mat:PackIcon Kind="DeleteEmpty" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="Eliminar Usuario">
+                            <MenuItem.Icon>
+                                <mat:PackIcon Kind="AccountMinus" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+
+                    <Separator />
+
+                    <MenuItem Header="Stock">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="Numeric0BoxMultipleOutline" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Listado Usuarios">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="AccountMultiple" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Inventario">
+                    <MenuItem Header="Listado de espacios">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="HomeAnalytics" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Chequear Inventario">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="CalendarCheck" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Inventario Nuevo">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="NewspaperPlus" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="Información">
+                    <MenuItem Header="Informes">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="ClipboardList" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Gráficos">
+                        <MenuItem.Icon>
+                            <mat:PackIcon Kind="ChartAreaspline" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <ToolBar DockPanel.Dock="Top" Height="50">
+            <Button ToolTip="Salir">
+                <mat:PackIcon Kind="LocationExit" Height="18" Width="18" />
+            </Button>
+            <Button ToolTip="Entrar">
+                <mat:PackIcon Kind="LocationEnter" Foreground="#124A76" Height="18" Width="18" />
+            </Button>
+            <Button ToolTip="Administrador de paquetes">
+                <mat:PackIcon Kind="Package" Foreground="#7290B3" Height="18" Width="18" />
+            </Button>
+            <Button ToolTip="Lista">
+                <mat:PackIcon Kind="ViewList" Height="18" Width="18" />
+            </Button>
+
+            <Separator />
+
+            <TextBlock Text="Busca un artículo" VerticalAlignment="Center" Margin="10, 0, 0, 0" />
+            <TextBox Width="150" Margin="10, 0, 0, 0" />
+        </ToolBar>
+        <Grid Grid.Row="1">
+
+        </Grid>
+    </DockPanel>
+</mah:MetroWindow>

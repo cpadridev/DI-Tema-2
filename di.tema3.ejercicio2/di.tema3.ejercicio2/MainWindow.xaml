@@ -1,0 +1,104 @@
+﻿<mah:MetroWindow x:Class="di.tema3.ejercicio2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.tema3.ejercicio2"
+        xmlns:fluent="urn:fluent-ribbon"
+        mc:Ignorable="d"
+        Icon="Iconos/matisse.png"
+        Title="INVENTARIO MATISSE" Height="450" Width="800">
+
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button>
+                <mat:PackIcon Kind="Account" />
+            </Button>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    
+    <Grid>
+        <fluent:Ribbon>
+            <fluent:Ribbon.QuickAccessItems>
+                <!--Use Content or Target Property to set QAT item-->
+                <fluent:QuickAccessMenuItem IsChecked="true">
+                </fluent:QuickAccessMenuItem>
+            </fluent:Ribbon.QuickAccessItems>
+            <fluent:Ribbon.Menu>
+                <fluent:Backstage>
+                    <fluent:BackstageTabControl>
+                        <fluent:BackstageTabItem Header="Opciones" />
+                    </fluent:BackstageTabControl>
+                </fluent:Backstage>
+            </fluent:Ribbon.Menu>
+            <fluent:RibbonTabItem Header="PRESTAMOS">
+                <fluent:RibbonGroupBox Header="Operaciones">
+                    <fluent:Button LargeIcon="Iconos/salida.png" Header="Salida" />
+                    <fluent:Button LargeIcon="Iconos/devolucion.png" Header="Devolución"/>
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Búsquedas">
+                    <TextBlock Text="Por número de serie" FontWeight="Bold" HorizontalAlignment="Center" />
+                    <fluent:TextBox Width="150" Margin="0,0,10,0" />
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Listados">
+                    <fluent:Button LargeIcon="Iconos/pendientes.png" Header="Pendientes" Foreground="#FF5415" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+            
+            <fluent:RibbonTabItem Header="ARTÍCULOS">
+                <fluent:RibbonGroupBox Header="Artículos">
+                    <fluent:Button LargeIcon="Iconos/addarticulo.png" Header="Nuevo" />
+                    <fluent:Button LargeIcon="Iconos/gesarticulo.png" Header="Editar"/>
+                    <fluent:Button LargeIcon="Iconos/listado.png" Header="Listado" Foreground="#00008B" />
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Modelo Artículo">
+                    <fluent:Button LargeIcon="Iconos/iconmodelo.png" Header="Nuevo"/>
+                    <fluent:Button LargeIcon="Iconos/caja.png" Header="Editar"/>
+                    <fluent:Button LargeIcon="Iconos/listamodelos.png" Header="Listado"/>
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <fluent:RibbonTabItem Header="ADMINISTRACIÓN">
+                    <fluent:RibbonGroupBox Header="Artículos">
+                    <fluent:Button LargeIcon="Iconos/adduser.png" Header="Nuevo" />
+                    <fluent:Button LargeIcon="Iconos/gesusuario.png" Header="Editar" />
+                    <fluent:Button LargeIcon="Iconos/resetclave.png" Header="Contraseñas" />
+                    <fluent:Button LargeIcon="Iconos/listausuarios.png" Header="Listado" />
+                    </fluent:RibbonGroupBox>
+
+                    <fluent:RibbonGroupBox Header="Modelo Artículo">
+                        <fluent:Button LargeIcon="Iconos/papelera.png" Header="Articulo" Foreground="#8B0000" />
+                        <fluent:Button LargeIcon="Iconos/papelera2.png" Header="Modelo" Foreground="#FF0000" />
+                        <fluent:Button LargeIcon="Iconos/usuario.png" Header="Usuario" Foreground="#FF4500" />
+                    </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="STOCK">
+                    <fluent:Button LargeIcon="Iconos/stock.png" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <fluent:RibbonTabItem Header="INVENTARIO">
+                <fluent:RibbonGroupBox Header="Espacios">
+                    <fluent:Button LargeIcon="Iconos/espacio.png" Header="Espacios" />
+                    <fluent:Button LargeIcon="Iconos/check.png" Header="Chequeo" />
+                    <fluent:Button LargeIcon="Iconos/espacios.png" Header="Inventario" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+
+            <fluent:RibbonTabItem Header="INFORMACIÓN">
+                <fluent:RibbonGroupBox Header="Informes">
+                    <fluent:Button LargeIcon="Iconos/informe.png" Header="Informe" />
+                </fluent:RibbonGroupBox>
+
+                <fluent:RibbonGroupBox Header="Gráficos">
+                    <fluent:Button LargeIcon="Iconos/charts.png" Header="Charts" />
+                </fluent:RibbonGroupBox>
+            </fluent:RibbonTabItem>
+        </fluent:Ribbon>
+    </Grid>
+</mah:MetroWindow>

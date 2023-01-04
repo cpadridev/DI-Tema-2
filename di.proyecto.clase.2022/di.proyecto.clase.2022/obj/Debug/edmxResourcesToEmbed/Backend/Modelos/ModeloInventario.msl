@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="inventarioModelStoreContainer" CdmEntityContainer="inventarioEntities">
+    <EntitySetMapping Name="articulo">
+      <EntityTypeMapping TypeName="inventarioModel.articulo">
+        <MappingFragment StoreEntitySet="articulo">
+          <ScalarProperty Name="idarticulo" ColumnName="idarticulo" />
+          <ScalarProperty Name="numserie" ColumnName="numserie" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fechaalta" ColumnName="fechaalta" />
+          <ScalarProperty Name="fechabaja" ColumnName="fechabaja" />
+          <ScalarProperty Name="usuarioalta" ColumnName="usuarioalta" />
+          <ScalarProperty Name="usuariobaja" ColumnName="usuariobaja" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="espacio" ColumnName="espacio" />
+          <ScalarProperty Name="dentrode" ColumnName="dentrode" />
+          <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departamento">
+      <EntityTypeMapping TypeName="inventarioModel.departamento">
+        <MappingFragment StoreEntitySet="departamento">
+          <ScalarProperty Name="iddepartamento" ColumnName="iddepartamento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="espacio">
+      <EntityTypeMapping TypeName="inventarioModel.espacio">
+        <MappingFragment StoreEntitySet="espacio">
+          <ScalarProperty Name="idespacio" ColumnName="idespacio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="padre" ColumnName="padre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ficheromodelo">
+      <EntityTypeMapping TypeName="inventarioModel.ficheromodelo">
+        <MappingFragment StoreEntitySet="ficheromodelo">
+          <ScalarProperty Name="idficheromodelo" ColumnName="idficheromodelo" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ficherousuario">
+      <EntityTypeMapping TypeName="inventarioModel.ficherousuario">
+        <MappingFragment StoreEntitySet="ficherousuario">
+          <ScalarProperty Name="idficherousuario" ColumnName="idficherousuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="grupo">
+      <EntityTypeMapping TypeName="inventarioModel.grupo">
+        <MappingFragment StoreEntitySet="grupo">
+          <ScalarProperty Name="idgrupo" ColumnName="idgrupo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="modeloarticulo">
+      <EntityTypeMapping TypeName="inventarioModel.modeloarticulo">
+        <MappingFragment StoreEntitySet="modeloarticulo">
+          <ScalarProperty Name="idmodeloarticulo" ColumnName="idmodeloarticulo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permiso">
+      <EntityTypeMapping TypeName="inventarioModel.permiso">
+        <MappingFragment StoreEntitySet="permiso">
+          <ScalarProperty Name="idpermiso" ColumnName="idpermiso" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="permisopadre" ColumnName="permisopadre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permisosrol">
+      <EntityTypeMapping TypeName="inventarioModel.permisosrol">
+        <MappingFragment StoreEntitySet="permisosrol">
+          <ScalarProperty Name="idpermisosrol" ColumnName="idpermisosrol" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="permiso" ColumnName="permiso" />
+          <ScalarProperty Name="acceso" ColumnName="acceso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="inventarioModel.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="idrol" ColumnName="idrol" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salida">
+      <EntityTypeMapping TypeName="inventarioModel.salida">
+        <MappingFragment StoreEntitySet="salida">
+          <ScalarProperty Name="idsalida" ColumnName="idsalida" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="articulo" ColumnName="articulo" />
+          <ScalarProperty Name="fechasalida" ColumnName="fechasalida" />
+          <ScalarProperty Name="fechadevolucion" ColumnName="fechadevolucion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoarticulo">
+      <EntityTypeMapping TypeName="inventarioModel.tipoarticulo">
+        <MappingFragment StoreEntitySet="tipoarticulo">
+          <ScalarProperty Name="idtipoarticulo" ColumnName="idtipoarticulo" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="padre" ColumnName="padre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipousuario">
+      <EntityTypeMapping TypeName="inventarioModel.tipousuario">
+        <MappingFragment StoreEntitySet="tipousuario">
+          <ScalarProperty Name="idtipousuario" ColumnName="idtipousuario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuario">
+      <EntityTypeMapping TypeName="inventarioModel.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="idusuario" ColumnName="idusuario" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+          <ScalarProperty Name="grupo" ColumnName="grupo" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+          <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="poblacion" ColumnName="poblacion" />
+          <ScalarProperty Name="codpostal" ColumnName="codpostal" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

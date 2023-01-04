@@ -1,0 +1,73 @@
+﻿<mah:MetroWindow x:Class="di.examen.nov._2021.bis.Frontend.Dialogos.DialogoVuelo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.examen.nov._2021.bis.Frontend.Dialogos"
+        mc:Ignorable="d"
+        Title="EXAMEN DI" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="#333333" Grid.ColumnSpan="2">
+            <TextBlock Text="NUEVO VUELO" Foreground="White" HorizontalAlignment="Center" Padding="0, 25, 0, 25" FontSize="32" />
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0, 10, 0, 0">
+            <mat:PackIcon Kind="About" VerticalAlignment="Center" Foreground="#FFB44B" Margin="5, 0, 5, 0" />
+            <TextBlock Text="Los campos en negrita son obligatorios" FontWeight="Bold" VerticalAlignment="Center" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Margin="0, 25, 0, 0">
+            <TextBlock Text="Avión" Margin="25, 0, 0, 0" />
+            <ComboBox Width="200" x:Name="cbxAvion" IsEditable="True" IsReadOnly="True" Text="Selecciona un avión" DisplayMemberPath="Matricula" Height="36" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="0, 20, 0, 0">
+            <TextBlock Text="Ciudad de Partida" Margin="25, 0, 0, 0" />
+            <ComboBox Width="200" x:Name="cbxCiudadPartida" IsEditable="True" IsReadOnly="True" Text="Selecciona una ciudad" DisplayMemberPath="Nombre" Height="36" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Margin="0, 20, 0, 0">
+            <TextBlock Text="Ciudad de Llegada" Margin="25, 0, 0, 0" />
+            <ComboBox Width="200" x:Name="cbxCiudadLlegada" IsEditable="True" IsReadOnly="True" Text="Selecciona una ciudad" DisplayMemberPath="Nombre" Height="36" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" Margin="10, 25, 40, 0">
+            <TextBlock Text="Dia del vuelo" FontWeight="Bold" Margin="5, 0, 0, 0" />
+            <Calendar x:Name="calDiaVuelo" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Margin="0, 20, 0, 0">
+            <TextBlock Text="Duración" FontWeight="Bold" Margin="25, 0, 0, 0" />
+            <TextBox Width="200" x:Name="txbDuracion" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Grid.Column="1" Margin="10, 20, 0, 0">
+            <TextBlock Text="Reservas" />
+            <TextBox Width="180" x:Name="txbReserva" HorizontalAlignment="Left" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="6" Grid.ColumnSpan="2" Margin="25, 10, 0, 0" Foreground="Red" x:Name="txbMensajeError" />
+
+        <StackPanel Grid.Row="7" Grid.Column="1" Margin="0, 20, 0, 20" Orientation="Horizontal">
+            <Button Content="Guardar" Style="{StaticResource MaterialDesignFlatDarkBgButton}" IsDefault="True" Margin="0, 0, 20, 0" Click="btnGuardar_Click" />
+            <Button Content="Cancelar" Style="{StaticResource MaterialDesignOutlinedDarkButton}" IsCancel="True" BorderBrush="Transparent" Click="btnCancelar_Click" Cursor="Hand" />
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

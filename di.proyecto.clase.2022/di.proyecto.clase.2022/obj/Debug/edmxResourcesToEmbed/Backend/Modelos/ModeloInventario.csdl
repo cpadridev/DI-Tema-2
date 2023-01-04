@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="inventarioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="articulo">
+    <Key>
+      <PropertyRef Name="idarticulo" />
+    </Key>
+    <Property Name="idarticulo" Type="Int32" Nullable="false" />
+    <Property Name="numserie" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="fechaalta" Type="DateTime" />
+    <Property Name="fechabaja" Type="DateTime" />
+    <Property Name="usuarioalta" Type="Int32" />
+    <Property Name="usuariobaja" Type="Int32" />
+    <Property Name="modelo" Type="Int32" Nullable="false" />
+    <Property Name="departamento" Type="Int32" />
+    <Property Name="espacio" Type="Int32" Nullable="false" />
+    <Property Name="dentrode" Type="Int32" />
+    <Property Name="observaciones" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="salida" Relationship="Self.fk_articulos_salida" FromRole="articulo" ToRole="salida" />
+    <NavigationProperty Name="articulo1" Relationship="Self.fk_dentrode_articulo" FromRole="articulo" ToRole="articulo1" />
+    <NavigationProperty Name="articulo2" Relationship="Self.fk_dentrode_articulo" FromRole="articulo1" ToRole="articulo" />
+    <NavigationProperty Name="departamento1" Relationship="Self.fk_departamentos_articulo" FromRole="articulo" ToRole="departamento" />
+    <NavigationProperty Name="espacio1" Relationship="Self.fk_espacios_articulo" FromRole="articulo" ToRole="espacio" />
+    <NavigationProperty Name="modeloarticulo" Relationship="Self.fk_modelos_articulo" FromRole="articulo" ToRole="modeloarticulo" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_usuarioalta_articulo" FromRole="articulo" ToRole="usuario" />
+    <NavigationProperty Name="usuario1" Relationship="Self.fk_usuariobaja_articulo" FromRole="articulo" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="departamento">
+    <Key>
+      <PropertyRef Name="iddepartamento" />
+    </Key>
+    <Property Name="iddepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="articulo" Relationship="Self.fk_departamentos_articulo" FromRole="departamento" ToRole="articulo" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_departamentos_usuario" FromRole="departamento" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="espacio">
+    <Key>
+      <PropertyRef Name="idespacio" />
+    </Key>
+    <Property Name="idespacio" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="padre" Type="Int32" />
+    <NavigationProperty Name="articulo" Relationship="Self.fk_espacios_articulo" FromRole="espacio" ToRole="articulo" />
+    <NavigationProperty Name="espacio1" Relationship="Self.fk_espacios_espacio" FromRole="espacio" ToRole="espacio1" />
+    <NavigationProperty Name="espacio2" Relationship="Self.fk_espacios_espacio" FromRole="espacio1" ToRole="espacio" />
+  </EntityType>
+  <EntityType Name="ficheromodelo">
+    <Key>
+      <PropertyRef Name="idficheromodelo" />
+    </Key>
+    <Property Name="idficheromodelo" Type="Int32" Nullable="false" />
+    <Property Name="modelo" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="contenido" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="modeloarticulo" Relationship="Self.fk_modelos_ficheromodelo" FromRole="ficheromodelo" ToRole="modeloarticulo" />
+  </EntityType>
+  <EntityType Name="ficherousuario">
+    <Key>
+      <PropertyRef Name="idficherousuario" />
+    </Key>
+    <Property Name="idficherousuario" Type="Int32" Nullable="false" />
+    <Property Name="usuario" Type="Int32" Nullable="false" />
+    <Property Name="tipo" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="contenido" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="usuario1" Relationship="Self.fk_usuarios_ficherousuario" FromRole="ficherousuario" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="grupo">
+    <Key>
+      <PropertyRef Name="idgrupo" />
+    </Key>
+    <Property Name="idgrupo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_grupos_usuario" FromRole="grupo" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="modeloarticulo">
+    <Key>
+      <PropertyRef Name="idmodeloarticulo" />
+    </Key>
+    <Property Name="idmodeloarticulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+    <Property Name="marca" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="modelo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="Int32" />
+    <NavigationProperty Name="articulo" Relationship="Self.fk_modelos_articulo" FromRole="modeloarticulo" ToRole="articulo" />
+    <NavigationProperty Name="ficheromodelo" Relationship="Self.fk_modelos_ficheromodelo" FromRole="modeloarticulo" ToRole="ficheromodelo" />
+    <NavigationProperty Name="tipoarticulo" Relationship="Self.fk_tipoarticulos_modeloarticulo" FromRole="modeloarticulo" ToRole="tipoarticulo" />
+  </EntityType>
+  <EntityType Name="permiso">
+    <Key>
+      <PropertyRef Name="idpermiso" />
+    </Key>
+    <Property Name="idpermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="permisopadre" Type="Int32" />
+    <NavigationProperty Name="permiso1" Relationship="Self.fk_permisos_padre" FromRole="permiso" ToRole="permiso1" />
+    <NavigationProperty Name="permiso2" Relationship="Self.fk_permisos_padre" FromRole="permiso1" ToRole="permiso" />
+    <NavigationProperty Name="permisosrol" Relationship="Self.fk_permisos_permisosrol" FromRole="permiso" ToRole="permisosrol" />
+  </EntityType>
+  <EntityType Name="permisosrol">
+    <Key>
+      <PropertyRef Name="idpermisosrol" />
+    </Key>
+    <Property Name="idpermisosrol" Type="Int32" Nullable="false" />
+    <Property Name="rol" Type="Int32" Nullable="false" />
+    <Property Name="permiso" Type="Int32" Nullable="false" />
+    <Property Name="acceso" Type="Int32" />
+    <NavigationProperty Name="permiso1" Relationship="Self.fk_permisos_permisosrol" FromRole="permisosrol" ToRole="permiso" />
+    <NavigationProperty Name="rol1" Relationship="Self.fk_roles_permisosrol" FromRole="permisosrol" ToRole="rol" />
+  </EntityType>
+  <EntityType Name="rol">
+    <Key>
+      <PropertyRef Name="idrol" />
+    </Key>
+    <Property Name="idrol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="permisosrol" Relationship="Self.fk_roles_permisosrol" FromRole="rol" ToRole="permisosrol" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_roles_usuario" FromRole="rol" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="salida">
+    <Key>
+      <PropertyRef Name="idsalida" />
+    </Key>
+    <Property Name="idsalida" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuario" Type="Int32" Nullable="false" />
+    <Property Name="articulo" Type="Int32" Nullable="false" />
+    <Property Name="fechasalida" Type="DateTime" Nullable="false" />
+    <Property Name="fechadevolucion" Type="DateTime" />
+    <NavigationProperty Name="articulo1" Relationship="Self.fk_articulos_salida" FromRole="salida" ToRole="articulo" />
+    <NavigationProperty Name="usuario1" Relationship="Self.fk_usuarios_salida" FromRole="salida" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="tipoarticulo">
+    <Key>
+      <PropertyRef Name="idtipoarticulo" />
+    </Key>
+    <Property Name="idtipoarticulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="padre" Type="Int32" />
+    <NavigationProperty Name="modeloarticulo" Relationship="Self.fk_tipoarticulos_modeloarticulo" FromRole="tipoarticulo" ToRole="modeloarticulo" />
+    <NavigationProperty Name="tipoarticulo1" Relationship="Self.fk_padre_tipoarticulo" FromRole="tipoarticulo" ToRole="tipoarticulo1" />
+    <NavigationProperty Name="tipoarticulo2" Relationship="Self.fk_padre_tipoarticulo" FromRole="tipoarticulo1" ToRole="tipoarticulo" />
+  </EntityType>
+  <EntityType Name="tipousuario">
+    <Key>
+      <PropertyRef Name="idtipousuario" />
+    </Key>
+    <Property Name="idtipousuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="usuario" Relationship="Self.fk_tipos_usuario" FromRole="tipousuario" ToRole="usuario" />
+  </EntityType>
+  <EntityType Name="usuario">
+    <Key>
+      <PropertyRef Name="idusuario" />
+    </Key>
+    <Property Name="idusuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipo" Type="Int32" Nullable="false" />
+    <Property Name="rol" Type="Int32" Nullable="false" />
+    <Property Name="grupo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="departamento" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="apellido1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="apellido2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="domicilio" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="poblacion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="codpostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="articulo" Relationship="Self.fk_usuarioalta_articulo" FromRole="usuario" ToRole="articulo" />
+    <NavigationProperty Name="articulo1" Relationship="Self.fk_usuariobaja_articulo" FromRole="usuario" ToRole="articulo" />
+    <NavigationProperty Name="departamento1" Relationship="Self.fk_departamentos_usuario" FromRole="usuario" ToRole="departamento" />
+    <NavigationProperty Name="ficherousuario" Relationship="Self.fk_usuarios_ficherousuario" FromRole="usuario" ToRole="ficherousuario" />
+    <NavigationProperty Name="grupo1" Relationship="Self.fk_grupos_usuario" FromRole="usuario" ToRole="grupo" />
+    <NavigationProperty Name="rol1" Relationship="Self.fk_roles_usuario" FromRole="usuario" ToRole="rol" />
+    <NavigationProperty Name="salida" Relationship="Self.fk_usuarios_salida" FromRole="usuario" ToRole="salida" />
+    <NavigationProperty Name="tipousuario" Relationship="Self.fk_tipos_usuario" FromRole="usuario" ToRole="tipousuario" />
+  </EntityType>
+  <Association Name="fk_articulos_salida">
+    <End Role="articulo" Type="Self.articulo" Multiplicity="1" />
+    <End Role="salida" Type="Self.salida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articulo">
+        <PropertyRef Name="idarticulo" />
+      </Principal>
+      <Dependent Role="salida">
+        <PropertyRef Name="articulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_dentrode_articulo">
+    <End Role="articulo" Type="Self.articulo" Multiplicity="0..1" />
+    <End Role="articulo1" Type="Self.articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="articulo">
+        <PropertyRef Name="idarticulo" />
+      </Principal>
+      <Dependent Role="articulo1">
+        <PropertyRef Name="dentrode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_departamentos_articulo">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="iddepartamento" />
+      </Principal>
+      <Dependent Role="articulo">
+        <PropertyRef Name="departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_espacios_articulo">
+    <End Role="espacio" Type="Self.espacio" Multiplicity="1" />
+    <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="espacio">
+        <PropertyRef Name="idespacio" />
+      </Principal>
+      <Dependent Role="articulo">
+        <PropertyRef Name="espacio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_modelos_articulo">
+    <End Role="modeloarticulo" Type="Self.modeloarticulo" Multiplicity="1" />
+    <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modeloarticulo">
+        <PropertyRef Name="idmodeloarticulo" />
+      </Principal>
+      <Dependent Role="articulo">
+        <PropertyRef Name="modelo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuarioalta_articulo">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="articulo">
+        <PropertyRef Name="usuarioalta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuariobaja_articulo">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+    <End Role="articulo" Type="Self.articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="articulo">
+        <PropertyRef Name="usuariobaja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_departamentos_usuario">
+    <End Role="departamento" Type="Self.departamento" Multiplicity="0..1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="departamento">
+        <PropertyRef Name="iddepartamento" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="departamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_espacios_espacio">
+    <End Role="espacio" Type="Self.espacio" Multiplicity="0..1" />
+    <End Role="espacio1" Type="Self.espacio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="espacio">
+        <PropertyRef Name="idespacio" />
+      </Principal>
+      <Dependent Role="espacio1">
+        <PropertyRef Name="padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_modelos_ficheromodelo">
+    <End Role="modeloarticulo" Type="Self.modeloarticulo" Multiplicity="1" />
+    <End Role="ficheromodelo" Type="Self.ficheromodelo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="modeloarticulo">
+        <PropertyRef Name="idmodeloarticulo" />
+      </Principal>
+      <Dependent Role="ficheromodelo">
+        <PropertyRef Name="modelo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuarios_ficherousuario">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="ficherousuario" Type="Self.ficherousuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="ficherousuario">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_grupos_usuario">
+    <End Role="grupo" Type="Self.grupo" Multiplicity="0..1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="grupo">
+        <PropertyRef Name="idgrupo" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipoarticulos_modeloarticulo">
+    <End Role="tipoarticulo" Type="Self.tipoarticulo" Multiplicity="0..1" />
+    <End Role="modeloarticulo" Type="Self.modeloarticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoarticulo">
+        <PropertyRef Name="idtipoarticulo" />
+      </Principal>
+      <Dependent Role="modeloarticulo">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_permisos_padre">
+    <End Role="permiso" Type="Self.permiso" Multiplicity="0..1" />
+    <End Role="permiso1" Type="Self.permiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permiso">
+        <PropertyRef Name="idpermiso" />
+      </Principal>
+      <Dependent Role="permiso1">
+        <PropertyRef Name="permisopadre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_permisos_permisosrol">
+    <End Role="permiso" Type="Self.permiso" Multiplicity="1" />
+    <End Role="permisosrol" Type="Self.permisosrol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permiso">
+        <PropertyRef Name="idpermiso" />
+      </Principal>
+      <Dependent Role="permisosrol">
+        <PropertyRef Name="permiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_roles_permisosrol">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="permisosrol" Type="Self.permisosrol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="permisosrol">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_roles_usuario">
+    <End Role="rol" Type="Self.rol" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rol">
+        <PropertyRef Name="idrol" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_usuarios_salida">
+    <End Role="usuario" Type="Self.usuario" Multiplicity="1" />
+    <End Role="salida" Type="Self.salida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="usuario">
+        <PropertyRef Name="idusuario" />
+      </Principal>
+      <Dependent Role="salida">
+        <PropertyRef Name="usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_padre_tipoarticulo">
+    <End Role="tipoarticulo" Type="Self.tipoarticulo" Multiplicity="0..1" />
+    <End Role="tipoarticulo1" Type="Self.tipoarticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipoarticulo">
+        <PropertyRef Name="idtipoarticulo" />
+      </Principal>
+      <Dependent Role="tipoarticulo1">
+        <PropertyRef Name="padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tipos_usuario">
+    <End Role="tipousuario" Type="Self.tipousuario" Multiplicity="1" />
+    <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipousuario">
+        <PropertyRef Name="idtipousuario" />
+      </Principal>
+      <Dependent Role="usuario">
+        <PropertyRef Name="tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="inventarioEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="articulo" EntityType="Self.articulo" />
+    <EntitySet Name="departamento" EntityType="Self.departamento" />
+    <EntitySet Name="espacio" EntityType="Self.espacio" />
+    <EntitySet Name="ficheromodelo" EntityType="Self.ficheromodelo" />
+    <EntitySet Name="ficherousuario" EntityType="Self.ficherousuario" />
+    <EntitySet Name="grupo" EntityType="Self.grupo" />
+    <EntitySet Name="modeloarticulo" EntityType="Self.modeloarticulo" />
+    <EntitySet Name="permiso" EntityType="Self.permiso" />
+    <EntitySet Name="permisosrol" EntityType="Self.permisosrol" />
+    <EntitySet Name="rol" EntityType="Self.rol" />
+    <EntitySet Name="salida" EntityType="Self.salida" />
+    <EntitySet Name="tipoarticulo" EntityType="Self.tipoarticulo" />
+    <EntitySet Name="tipousuario" EntityType="Self.tipousuario" />
+    <EntitySet Name="usuario" EntityType="Self.usuario" />
+    <AssociationSet Name="fk_articulos_salida" Association="Self.fk_articulos_salida">
+      <End Role="articulo" EntitySet="articulo" />
+      <End Role="salida" EntitySet="salida" />
+    </AssociationSet>
+    <AssociationSet Name="fk_dentrode_articulo" Association="Self.fk_dentrode_articulo">
+      <End Role="articulo" EntitySet="articulo" />
+      <End Role="articulo1" EntitySet="articulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_departamentos_articulo" Association="Self.fk_departamentos_articulo">
+      <End Role="departamento" EntitySet="departamento" />
+      <End Role="articulo" EntitySet="articulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_espacios_articulo" Association="Self.fk_espacios_articulo">
+      <End Role="espacio" EntitySet="espacio" />
+      <End Role="articulo" EntitySet="articulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_modelos_articulo" Association="Self.fk_modelos_articulo">
+      <End Role="modeloarticulo" EntitySet="modeloarticulo" />
+      <End Role="articulo" EntitySet="articulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuarioalta_articulo" Association="Self.fk_usuarioalta_articulo">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="articulo" EntitySet="articulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuariobaja_articulo" Association="Self.fk_usuariobaja_articulo">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="articulo" EntitySet="articulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_departamentos_usuario" Association="Self.fk_departamentos_usuario">
+      <End Role="departamento" EntitySet="departamento" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_espacios_espacio" Association="Self.fk_espacios_espacio">
+      <End Role="espacio" EntitySet="espacio" />
+      <End Role="espacio1" EntitySet="espacio" />
+    </AssociationSet>
+    <AssociationSet Name="fk_modelos_ficheromodelo" Association="Self.fk_modelos_ficheromodelo">
+      <End Role="modeloarticulo" EntitySet="modeloarticulo" />
+      <End Role="ficheromodelo" EntitySet="ficheromodelo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuarios_ficherousuario" Association="Self.fk_usuarios_ficherousuario">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="ficherousuario" EntitySet="ficherousuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_grupos_usuario" Association="Self.fk_grupos_usuario">
+      <End Role="grupo" EntitySet="grupo" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipoarticulos_modeloarticulo" Association="Self.fk_tipoarticulos_modeloarticulo">
+      <End Role="tipoarticulo" EntitySet="tipoarticulo" />
+      <End Role="modeloarticulo" EntitySet="modeloarticulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_permisos_padre" Association="Self.fk_permisos_padre">
+      <End Role="permiso" EntitySet="permiso" />
+      <End Role="permiso1" EntitySet="permiso" />
+    </AssociationSet>
+    <AssociationSet Name="fk_permisos_permisosrol" Association="Self.fk_permisos_permisosrol">
+      <End Role="permiso" EntitySet="permiso" />
+      <End Role="permisosrol" EntitySet="permisosrol" />
+    </AssociationSet>
+    <AssociationSet Name="fk_roles_permisosrol" Association="Self.fk_roles_permisosrol">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="permisosrol" EntitySet="permisosrol" />
+    </AssociationSet>
+    <AssociationSet Name="fk_roles_usuario" Association="Self.fk_roles_usuario">
+      <End Role="rol" EntitySet="rol" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_usuarios_salida" Association="Self.fk_usuarios_salida">
+      <End Role="usuario" EntitySet="usuario" />
+      <End Role="salida" EntitySet="salida" />
+    </AssociationSet>
+    <AssociationSet Name="fk_padre_tipoarticulo" Association="Self.fk_padre_tipoarticulo">
+      <End Role="tipoarticulo" EntitySet="tipoarticulo" />
+      <End Role="tipoarticulo1" EntitySet="tipoarticulo" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tipos_usuario" Association="Self.fk_tipos_usuario">
+      <End Role="tipousuario" EntitySet="tipousuario" />
+      <End Role="usuario" EntitySet="usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

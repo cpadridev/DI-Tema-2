@@ -1,0 +1,16 @@
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.csproj.AssemblyReference.cache
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.csproj.SuggestedBindingRedirects.cache
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\MainWindow.g.cs
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\App.g.cs
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo_MarkupCompile.cache
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo_MarkupCompile.lref
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\bin\Debug\di.tema2.ejercicio1.codigo.exe.config
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\bin\Debug\di.tema2.ejercicio1.codigo.exe
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\bin\Debug\di.tema2.ejercicio1.codigo.pdb
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\MainWindow.baml
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.g.resources
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.Properties.Resources.resources
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.csproj.GenerateResource.cache
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.csproj.CoreCompileInputs.cache
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.exe
+C:\Users\cpadridev\source\repos\di.tema2.ejercicio1.codigo\di.tema2.ejercicio1.codigo\obj\Debug\di.tema2.ejercicio1.codigo.pdb

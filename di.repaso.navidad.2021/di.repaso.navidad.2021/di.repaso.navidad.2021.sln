@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "di.repaso.navidad.2021", "di.repaso.navidad.2021\di.repaso.navidad.2021.csproj", "{DD79BA7E-7E0D-44C0-BF9F-2AA7AF17C063}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD79BA7E-7E0D-44C0-BF9F-2AA7AF17C063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD79BA7E-7E0D-44C0-BF9F-2AA7AF17C063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD79BA7E-7E0D-44C0-BF9F-2AA7AF17C063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD79BA7E-7E0D-44C0-BF9F-2AA7AF17C063}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47AD5205-6508-4C37-9CC8-8E1502E0DA47}
+	EndGlobalSection
+EndGlobal

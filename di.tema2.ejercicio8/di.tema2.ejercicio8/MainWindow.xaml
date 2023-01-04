@@ -32,17 +32,27 @@
             <TextBlock Grid.Row="0" Margin="0, 20, 0, 0" Text="LOGIN" HorizontalAlignment="Center" Foreground="White" FontSize="36" />
             <TextBlock Grid.Row="1" Margin="0, 10, 0, 10" Text="Por favor introduce tu usuario y clave" HorizontalAlignment="Center" Foreground="White" />
             <TextBox Grid.Row="2" Margin="0, 10, 0, 10" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="300" mat:TextFieldAssist.TextFieldCornerRadius="25" BorderBrush="DarkCyan">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type mat:SmartHint}">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                    </Style>
+                </TextBox.Resources>
                 <mat:HintAssist.Hint>
-                    <TextBlock Text="Username" Margin="100, 0, 0, 0" Foreground="Gray" />
+                    <TextBlock Text="Username" Foreground="Gray" />
                 </mat:HintAssist.Hint>
             </TextBox>
             <PasswordBox Grid.Row="3" Width="300" Margin="0,10,0,0" Style="{StaticResource MaterialDesignOutlinedPasswordBox}" mat:TextFieldAssist.HasClearButton="True" mat:TextFieldAssist.TextFieldCornerRadius="25" BorderBrush="DarkCyan">
+                <PasswordBox.Resources>
+                    <Style TargetType="{x:Type mat:SmartHint}">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                    </Style>
+                </PasswordBox.Resources>
                 <mat:HintAssist.Hint>
-                    <TextBlock Text="Contraseña" Margin="100, 0, 0, 0" Foreground="Gray" />
+                    <TextBlock Text="Contraseña" Foreground="Gray" />
                 </mat:HintAssist.Hint>
             </PasswordBox>
             <Button Grid.Row="4" Margin="0, 10, 0, 10" Content="¿Has olvidado la contraseña?" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Transparent" Foreground="White" />
-            <Button Grid.Row="5" Margin="0, 5, 0, 5" Content="Login" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Lime" Foreground="Gray" mat:ButtonAssist.CornerRadius="25" Height="48" Width="100" />
+            <Button Grid.Row="5" Margin="0, 5, 0, 5" Content="Login" Style="{StaticResource MaterialDesignOutlinedButton}" BorderBrush="Lime" Foreground="Gray" mat:ButtonAssist.CornerRadius="25" Height="48" Width="130" />
             <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="6" Margin="0, 10, 0, 50">
                 <Button Margin="0, 0, 5, 0" Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" Background="#181818" BorderBrush="#181818">
                     <mat:PackIcon Kind="Facebook" Foreground="White" Height="24" Width="24" />

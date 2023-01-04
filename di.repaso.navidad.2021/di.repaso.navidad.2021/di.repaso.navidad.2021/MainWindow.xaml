@@ -1,0 +1,51 @@
+﻿<mah:MetroWindow x:Class="di.repaso.navidad._2021.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:mat="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:di.repaso.navidad._2021"
+        mc:Ignorable="d" WindowState="Maximized"
+        Title="REPASO NAVIDAD" Height="450" Width="800">
+    <mah:MetroWindow.RightWindowCommands>
+        <mah:WindowCommands>
+            <Button Content="{mat:PackIcon Kind=User}"/>
+        </mah:WindowCommands>
+    </mah:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="9*"/>
+        </Grid.ColumnDefinitions>
+        <mah:HamburgerMenu Foreground="White"
+            x:Name="hamMenuPrincipal"
+            DisplayMode="CompactInline"
+            ItemTemplate="{StaticResource MenuItemTemplateIcon}"
+            OptionsItemTemplate="{StaticResource MenuItemTemplateIcon}"
+            ItemClick="hamMenuPrincipal_ItemClick"
+            Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+            <mah:HamburgerMenu.ItemsSource>
+                <mah:HamburgerMenuItemCollection>
+                    <mah:HamburgerMenuIconItem Icon="{mat:PackIcon Kind=City}" Label="GESTION OFICINAS"
+                                               Tag="GESTION OFICINAS" />
+                    <mah:HamburgerMenuIconItem Icon="{mat:PackIcon Kind=CustomerService}" Label="GESTION EMPLEADOS"
+                                               Tag="GESTION EMPLEADOS"/>
+                    <mah:HamburgerMenuIconItem Icon="{mat:PackIcon Kind=Flower}" Label="GESTION PRODUCTOS" 
+                                               Tag="GESTION PRODUCTOS"/>
+                    <mah:HamburgerMenuIconItem Icon="{mat:PackIcon Kind=Email}" Label="GESTION PEDIDOS"
+                                               Tag="GESTION PEDIDOS"/>
+                    <mah:HamburgerMenuIconItem Icon="{mat:PackIcon Kind=UserBadge}" Label="GESTION CLIENTES"
+                                               Tag="GESTION CLIENTES"/>
+                </mah:HamburgerMenuItemCollection>
+            </mah:HamburgerMenu.ItemsSource>
+            <!--  Options  -->
+            <mah:HamburgerMenu.OptionsItemsSource>
+                <mah:HamburgerMenuItemCollection>
+                    <mah:HamburgerMenuIconItem Icon="{mat:PackIcon Kind=Help}" Label="Ayuda">
+                    </mah:HamburgerMenuIconItem>
+                </mah:HamburgerMenuItemCollection>
+            </mah:HamburgerMenu.OptionsItemsSource>
+        </mah:HamburgerMenu>
+    </Grid>
+</mah:MetroWindow>

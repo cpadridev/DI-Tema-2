@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="jardineriaModelStoreContainer" CdmEntityContainer="jardineriaEntities">
+    <EntitySetMapping Name="clientes">
+      <EntityTypeMapping TypeName="jardineriaModel.clientes">
+        <MappingFragment StoreEntitySet="clientes">
+          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+          <ScalarProperty Name="NombreCliente" ColumnName="NombreCliente" />
+          <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+          <ScalarProperty Name="ApellidoContacto" ColumnName="ApellidoContacto" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="LineaDireccion1" ColumnName="LineaDireccion1" />
+          <ScalarProperty Name="LineaDireccion2" ColumnName="LineaDireccion2" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="CodigoEmpleadoRepVentas" ColumnName="CodigoEmpleadoRepVentas" />
+          <ScalarProperty Name="LimiteCredito" ColumnName="LimiteCredito" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detallepedidos">
+      <EntityTypeMapping TypeName="jardineriaModel.detallepedidos">
+        <MappingFragment StoreEntitySet="detallepedidos">
+          <ScalarProperty Name="CodigoPedido" ColumnName="CodigoPedido" />
+          <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+          <ScalarProperty Name="NumeroLinea" ColumnName="NumeroLinea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="empleados">
+      <EntityTypeMapping TypeName="jardineriaModel.empleados">
+        <MappingFragment StoreEntitySet="empleados">
+          <ScalarProperty Name="CodigoEmpleado" ColumnName="CodigoEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
+          <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CodigoOficina" ColumnName="CodigoOficina" />
+          <ScalarProperty Name="CodigoJefe" ColumnName="CodigoJefe" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gamasproductos">
+      <EntityTypeMapping TypeName="jardineriaModel.gamasproductos">
+        <MappingFragment StoreEntitySet="gamasproductos">
+          <ScalarProperty Name="Gama" ColumnName="Gama" />
+          <ScalarProperty Name="DescripcionTexto" ColumnName="DescripcionTexto" />
+          <ScalarProperty Name="DescripcionHTML" ColumnName="DescripcionHTML" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oficinas">
+      <EntityTypeMapping TypeName="jardineriaModel.oficinas">
+        <MappingFragment StoreEntitySet="oficinas">
+          <ScalarProperty Name="CodigoOficina" ColumnName="CodigoOficina" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="Pais" ColumnName="Pais" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="LineaDireccion1" ColumnName="LineaDireccion1" />
+          <ScalarProperty Name="LineaDireccion2" ColumnName="LineaDireccion2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pagos">
+      <EntityTypeMapping TypeName="jardineriaModel.pagos">
+        <MappingFragment StoreEntitySet="pagos">
+          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+          <ScalarProperty Name="FormaPago" ColumnName="FormaPago" />
+          <ScalarProperty Name="IDTransaccion" ColumnName="IDTransaccion" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos">
+      <EntityTypeMapping TypeName="jardineriaModel.pedidos">
+        <MappingFragment StoreEntitySet="pedidos">
+          <ScalarProperty Name="CodigoPedido" ColumnName="CodigoPedido" />
+          <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+          <ScalarProperty Name="FechaEsperada" ColumnName="FechaEsperada" />
+          <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Comentarios" ColumnName="Comentarios" />
+          <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productos">
+      <EntityTypeMapping TypeName="jardineriaModel.productos">
+        <MappingFragment StoreEntitySet="productos">
+          <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Gama" ColumnName="Gama" />
+          <ScalarProperty Name="Dimensiones" ColumnName="Dimensiones" />
+          <ScalarProperty Name="Proveedor" ColumnName="Proveedor" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CantidadEnStock" ColumnName="CantidadEnStock" />
+          <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+          <ScalarProperty Name="PrecioProveedor" ColumnName="PrecioProveedor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
